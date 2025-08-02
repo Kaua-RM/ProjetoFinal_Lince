@@ -1,0 +1,23 @@
+{
+
+ "textFormLoginLogin": "Login",
+ "textFormLoginPassword": "Senha",
+
+  "textLogin":"UMA VIAGEM NÃO SE MEDE EM MILHAS, MAS EM MOMENTOS.",
+  "buttomLogin":"VAMOS LÁ",
+
+
+ "titleHome":"BEM VINDO.",
+ "subTitleHome":"Seu proximo destino lhe aguarda",
+ "subTitleDividerHome":"Viagens Anteriores",
+
+  "titleForm":"ROTEIRO",
+  "subTitleForm":"As mehores viagens começam com um bom planejamento",
+  "subTitleDividerForm":"Formulário",
+
+   "titleBook":"MOMENTOS",
+   "subTitleBook":"A viagem pode ter acabado mais os momentos são eternos",
+   "subTitleDividerBook":"Adicione lembranças"
+
+
+}

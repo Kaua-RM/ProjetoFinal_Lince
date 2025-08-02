@@ -1,0 +1,23 @@
+{
+
+ "textFormLoginLogin": "Login",
+ "textFormLoginPassword": "Password",
+
+  "textLogin":"A TRIP IS NOT MEASURED IN MILES, BUT IN MOMENTS.",
+  "buttomLogin":"LET'S GO",
+
+
+ "titleHome":"WELCOME.",
+ "subTitleHome":"Your next destination awaits",
+ "subTitleDividerHome":"Previous Trips",
+
+  "titleForm":"ITINERARY",
+  "subTitleForm":"The best trips start with good planning",
+  "subTitleDividerForm":"Form",
+
+   "titleBook":"MOMENTS",
+   "subTitleBook":"The trip may be over but the moments are eternal",
+   "subTitleDividerBook":"Add memories"
+
+
+}
