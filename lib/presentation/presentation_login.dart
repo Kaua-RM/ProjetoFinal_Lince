@@ -4,6 +4,7 @@ import 'package:projectflite/l10n/app_localizations_en.dart';
 import 'package:projectflite/presentation/routes.dart';
 import 'package:projectflite/presentation/theme_background.dart';
 import 'package:projectflite/utils/util_backgroundimage.dart';
+import 'package:projectflite/utils/util_buttomlogin.dart';
 import 'package:projectflite/utils/util_formloginlanguage.dart';
 import 'package:projectflite/utils/util_loginlanguage.dart';
 import 'package:projectflite/utils/util_topdown.dart';
@@ -15,8 +16,13 @@ import '../utils/util_presentation.dart';
 class PresentationLogin extends StatelessWidget {
   const PresentationLogin({super.key});
 
+
   @override
   Widget build(BuildContext context) {
+
+    TextEditingController controllerName = TextEditingController();
+    TextEditingController controllerYears = TextEditingController();
+
     return  Scaffold(
           body: Container(
             decoration: BoxDecoration(
@@ -40,11 +46,11 @@ class PresentationLogin extends StatelessWidget {
                       ),
                       Image.asset("assets/Logo.png"),
                       SizedBox(height: 40,),
-                      formsLoginLanguage(context),
-                      SizedBox(height: 50,),
+                      formsLoginLanguage(context ,controllerName , controllerYears),
+                      SizedBox(height: 40,),
                       textLogin(context),
-                      SizedBox(height: 50,),
-                     buttomLogin(context),
+                      SizedBox(height: 40,),
+                      buttomLogin(context, controllerName, controllerYears)
                     ],
                   ),
                 ),

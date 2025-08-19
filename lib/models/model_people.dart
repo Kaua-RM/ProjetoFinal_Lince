@@ -1,11 +1,7 @@
+class ModelPeople {
+  int? id_people;
+  String Name;
+  String Age;
 
-class modelPeople{
-
-  final int     id_people;
-  final String  Name;
-  final int     Age;
-
-
-  modelPeople({required this.id_people , required this.Name , required this.Age});
-
+  ModelPeople(this.id_people, {required this.Name, required this.Age});
 }
