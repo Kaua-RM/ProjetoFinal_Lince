@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projectflite/controllers/controller_adress.dart';
 import 'package:projectflite/controllers/controller_moodapp.dart';
 import 'package:projectflite/controllers/controller_travel.dart';
 import 'package:projectflite/utils/util_presentation.dart';
@@ -17,6 +18,7 @@ class PresentationHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var consumerTravel = Provider.of<ControllerTravel>(context);
+    var consumerAdress = Provider.of<ControllerAdress>(context , listen: false);
 
     return Consumer<MoodsApp>(
       builder: (context, change, child) => Scaffold(
@@ -46,17 +48,21 @@ class PresentationHome extends StatelessWidget {
                     hintText: "Procurar",
                   ),
                   SizedBox(height: 200),
-                  ListView.builder(
+        Consumer<ControllerAdress>(
+        builder: (context, consumerAdress, child) {
+      return ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: consumerTravel.travels.length,
                     itemBuilder: (context, index) {
                       return Column(children: [
                         Text(consumerTravel.travels[index].title),
-                        Text(consumerTravel.travels[index].pitstops.length.toString()),
+                        Text(consumerTravel.travels[index].typeVei),
+                        Text(consumerAdress.adress[index].state),
+                        Text(consumerAdress.adress[index].country),
                       ],);
                     },
-                  ),
+                  );}),
                   routesButtons(context),
                 ],
               ),

@@ -79,6 +79,7 @@ class PresentationForms extends StatelessWidget {
 
                           consumerPitStop.pitstopPresentation = [];
                           consumerPeople.people = [];
+                          consumerMeansTransport.chooseVehicle = "";
                           consumerPitStop.pitstops = {};
                         },
                         child: Text("Salvar"),

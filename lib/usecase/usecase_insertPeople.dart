@@ -7,7 +7,6 @@ import '../controllers/controller_peoples.dart';
 
 void openModalUser(BuildContext context) {
   TextEditingController controllerName = TextEditingController();
-  TextEditingController controllerYears = TextEditingController();
   TextEditingController dateController = TextEditingController();
 
   var consumePeople = Provider.of<ControllerPeoples>(context, listen: false);

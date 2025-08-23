@@ -19,7 +19,6 @@ class ControllerMap extends ChangeNotifier {
       markerId: data.idStop,
       position: data.position,
       onTap: () {
-        // Nada aqui. A lógica de abrir o modal está no widget.
       },
     )).toSet();
   }
