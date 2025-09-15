@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projectflite/presentation/theme_background.dart';
 import 'package:projectflite/utils/util_topdown.dart';
 import 'package:provider/provider.dart';
 import '../controllers/controller_map.dart';
@@ -32,30 +31,35 @@ class PresentationBooklet extends StatelessWidget {
                 children: [
                   Row(children: [topDown(context), iconLightMode(context)]),
                   titleLanguage("book", context),
-                  subTitleDividerLanguage("book", context),
-                  SearchBar(
-                    leading: Icon(
-                      Icons.search,
-                      color: Background().orangeYellow(),
-                    ),
-                    hintText: "Procurar",
-                  ),
-
                   Consumer<ControllerMap>(
                     builder: (context, map, child) => Container(
                       width: double.infinity,
-                      decoration: BoxDecoration(color: Background().white()),
                       child: Column(children: [
-                        ListView.builder(
+                        GridView.builder(
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                           itemCount: map.pitstopPresentation.length,
                           shrinkWrap: true,
                           physics: NeverScrollableScrollPhysics(),
                           itemBuilder: (context, index) {
-                            return Column(children: [
-                              Text(map.pitstopPresentation[index].initDate),
-                              Text(map.pitstopPresentation[index].endDate),
-                              Text(map.pitstopPresentation[index].experienceChoose.toString())
-                            ],);
+                            return Card(
+                              color: Colors.white,
+                              shape: OutlineInputBorder(),
+                              child: Column(children: [
+                                Text("Parada nº ${index + 1}"),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Image.network(map.pitstopPresentation[index].image),
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  spacing: 1,
+                                  children: [
+                                    Text(map.pitstopPresentation[index].initDate , style: TextStyle(fontSize: 16)),
+                                    Text(map.pitstopPresentation[index].endDate , style: TextStyle(fontSize: 16)),
+                                  ],
+                                ),
+                              ],),
+                            );
                           },)
                       ]),
                     ),

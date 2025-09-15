@@ -4,8 +4,8 @@ class ControllerDate extends ChangeNotifier{
 
    String dateInit = "";
 
-   void setDate(String Date){
-     dateInit = Date;
+   void setDate(String date){
+     dateInit = date;
      notifyListeners();
    }
 

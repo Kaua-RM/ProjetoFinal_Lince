@@ -26,8 +26,6 @@ Widget routesButtons(BuildContext context){
               icon: Icon(Icons.home)),
           IconButton(onPressed: () => Routes.routeForm(context),
               icon: Icon(Icons.travel_explore)),
-          IconButton(onPressed: () => Routes.routeBook(context),
-              icon: Icon(Icons.camera_alt_outlined)),
         ],
       ),
     );

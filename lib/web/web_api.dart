@@ -1,31 +1,34 @@
 import "dart:convert";
-
+import "package:google_maps_flutter/google_maps_flutter.dart";
 import "package:http/http.dart" as http;
 import "package:projectflite/web/web_url.dart";
 
 
-void main(){
-
-  WebApi().getLocation("34.4391708", "58.7064573");
-
-}
 
 
 class WebApi {
 
-  Future<Map<String , dynamic>> getLocation(String lat , String log) async{
-    try{
-      var response = await http.get(Uri.parse(WebUrl.urlBase(lat, log)));
-      if(response.statusCode == 200){
-        var json = jsonDecode(utf8.decode(response.bodyBytes)) as Map<String , dynamic>;
-        print(json["address"]);
-        return json["address"];
-      }else{
-        print(response.statusCode);
+  Future<Map<String, dynamic>> getLocation(LatLng position) async {
+    try {
+      var response = await http.get(
+        Uri.parse(WebUrl.urlBase(position)),
+        headers: {
+          'User-Agent': 'projectflite/1.0.0 (krodriguesmellato@gmail.com)'
+        },
+      );
+
+      if (response.statusCode == 200) {
+        var json = jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
+
+        if (json.containsKey("address")) {
+          return json["address"];
+        } else {
+          return {};
+        }
+      } else {
         return {};
       }
-    }catch (e){
-      print("Erro : $e");
+    } catch (e) {
       return {};
     }
   }

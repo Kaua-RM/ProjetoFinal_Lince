@@ -1,13 +1,15 @@
-import 'dart:ffi';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import 'model_adress.dart';
 
 class ModelPitstop {
   late MarkerId idStop;
   late LatLng position;
   late var initDate = "";
   late var endDate = "";
-  late List<String> experienceChoose;
+  late String image = "";
+  late int    idAdress;
 
   Map<String, bool> experiences = {
     "Conhecer novas culturas": false,
@@ -21,9 +23,18 @@ class ModelPitstop {
     required this.position,
     required this.initDate,
     required this.endDate,
-    required this.experienceChoose
+    required this.image,
+    required this.idAdress,
   });
 
-
-
+  factory ModelPitstop.fromMap(Map<String, dynamic> map) {
+    return ModelPitstop(
+      idStop: map['id_stop'],
+      position: map['chooseVehicle'],
+      initDate: map['dt_arrive'],
+      endDate:  map['dt_go'],
+      image: map['path_img'],
+      idAdress: map['id_adress'],
+    );
+  }
 }

@@ -29,9 +29,10 @@ class ControllerMap extends ChangeNotifier {
     final newPitstop = ModelPitstop(
       idStop: markerId,
       position: position,
+      image: "",
       initDate: "",
       endDate: "",
-      experienceChoose: []
+      idAdress: 0,
     );
 
     pitstops[markerId] = newPitstop;
@@ -43,10 +44,36 @@ class ControllerMap extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setStopPresentation(MarkerId idStop , LatLng position , String initDate , String endDate , List<String> experinceChoose){
+  void setStopPresentation(MarkerId idStop , LatLng position , String initDate , String endDate , String image  , int idAdress){
 
-    pitstopPresentation.add(ModelPitstop(idStop: idStop, position: position, initDate: initDate, endDate: endDate , experienceChoose:  experinceChoose));
+    pitstopPresentation.add(ModelPitstop(idStop: idStop, position: position, initDate: initDate, endDate: endDate , idAdress: idAdress , image: image));
     notifyListeners();
+  }
+
+  String getPickerMap(LatLng position) {
+
+    final String picke = 'https://maps.googleapis.com/maps/api/staticmap'
+        '?size=400x200'
+        '&zoom=18'
+        '&center=${position.latitude},${position.longitude}'
+        '&markers=color:red%7C${position.latitude},${position.longitude}'
+        '&key=AIzaSyAgT9pV0ONamMF8ByF008OT7lf4-1oAFd0';
+    return picke;
+  }
+  String getRouteMapImage(List<ModelPitstop> pitstops) {
+    final baseUrl = 'https://maps.googleapis.com/maps/api/staticmap';
+    final size = 'size=600x400';
+    final markers = pitstops.map((pitstop) {
+      final lat = pitstop.position.latitude;
+      final lon = pitstop.position.longitude;
+      return 'markers=color:blue%7C$lat,$lon';
+    }).join('&');
+    final path = 'path=color:0x0000ff|weight:5|' + pitstops.map((pitstop) {
+      return '${pitstop.position.latitude},${pitstop.position.longitude}';
+    }).join('|');
+    final key = 'key=AIzaSyAgT9pV0ONamMF8ByF008OT7lf4-1oAFd0';
+
+    return '$baseUrl?$size&$markers&$path&$key';
   }
 
 
@@ -93,3 +120,4 @@ class ControllerMap extends ChangeNotifier {
     return await Geolocator.getCurrentPosition();
   }
 }
+

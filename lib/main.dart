@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projectflite/controllers/controller_adress.dart';
 import 'package:projectflite/controllers/controller_dates.dart';
 import 'package:projectflite/controllers/controller_group.dart';
+import 'package:projectflite/controllers/controller_image.dart';
 import 'package:projectflite/controllers/controller_languageapp.dart';
 import 'package:projectflite/controllers/controller_map.dart';
 import 'package:projectflite/controllers/controller_moodapp.dart';
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
       ChangeNotifierProvider(create: (context) => ControllerGroup()),
       ChangeNotifierProvider(create: (context) => ControllerPeoples()),
       ChangeNotifierProvider(create: (context) => ControllerTravel()),
-      ChangeNotifierProvider(create: (context) => ControllerAdress())
+      ChangeNotifierProvider(create: (context) => ControllerAdress()),
+      ChangeNotifierProvider(create: (context) => ControllerImage()),
     ], child: MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

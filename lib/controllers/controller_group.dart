@@ -8,7 +8,7 @@ String chooseVehicle = "";
 
 void addGroup(String vehicle){
 
-  ModelGroup(0, ch_vehicle: vehicle);
+  ModelGroup(ch_vehicle: vehicle);
 
   chooseVehicle = vehicle;
 

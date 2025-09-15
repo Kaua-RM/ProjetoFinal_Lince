@@ -12,7 +12,7 @@ class ChangeLanguage extends ChangeNotifier{
     startLangue();
   }
 
-  startLangue() async{
+startLangue() async{
     await  preferencesLangue();
     await  readPreferences();
   }
